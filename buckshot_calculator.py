@@ -25,26 +25,26 @@ def main():
     print(f"Percentage of hit : {live_percentage}")
     print(f"Percentage of blank : {blank_percentage}")
     print()
-    print("1. Populate Known Information")
-    print("2. Populate Current Round Information")
+    print("1. Populate Current Round Information")
+    print("2. Populate Future Round Information")
     print("3. Advance Turn Counter")
     option = int(input("Enter option: "))
     print()
 
-    if (option == 1):
+    elif (option == 1):
+      round = input("Enter type of round (L/B) : ")
+      if round == "L":
+        known_live_locations.add(turn_counter)
+      else:
+        known_blank_locations.add(turn_counter)
+
+    if (option == 2):
       round = input("Enter type of round (L/B) : ")
       relative_turn = int(input("Enter turn of known information : "))
       if round == "L":
         known_live_locations.add(relative_turn + turn_counter)
       else:
         known_blank_locations.add(relative_turn + turn_counter)
-
-    elif (option  == 2):
-      round = input("Enter type of round (L/B) : ")
-      if round == "L":
-        known_live_locations.add(turn_counter)
-      else:
-        known_blank_locations.add(turn_counter)
 
     elif (option == 3):
       round = input("Enter type of round (L/B) :  ")
